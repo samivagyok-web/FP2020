@@ -32,6 +32,11 @@ namespace _1_0610
             // test pt git hub
 
             // sper ca acum o sa reusesc
+
+            for (int i = 0; i < d; i++)
+            {
+                Console.WriteLine($"{d}");
+            }
         }
     }
 }
