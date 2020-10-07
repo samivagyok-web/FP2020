@@ -37,6 +37,8 @@ namespace _1_0610
             {
                 Console.WriteLine($"{d}");
             }
+
+            // BEANS
         }
     }
 }
