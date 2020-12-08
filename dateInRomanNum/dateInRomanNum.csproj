@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6ED3B838-47D5-4881-A676-9C65C4BC1955}</ProjectGuid>
+    <ProjectGuid>{E31FB55B-4EE8-4275-B127-5927E502C6B8}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_6_1011</RootNamespace>
-    <AssemblyName>6_1011</AssemblyName>
+    <RootNamespace>dateInRomanNum</RootNamespace>
+    <AssemblyName>dateInRomanNum</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExtensionMethodsForInt.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
