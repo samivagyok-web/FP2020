@@ -10,26 +10,280 @@ namespace pool2
     {
         static void Main(string[] args)
         {
-            // did: 1 2 3 4 5 6 7 8 9 10 11 12
+            // POOL 2 DONE
 
-            //  pareNegPozZero();
-            // numberSum();
-            // numberPos();
-            // secvCrescator();
-            // minMax();
+            //   Problema1si2();
+            //   Problema3();
+            //   Problema4si5();
+            //   Problema6();
+            //  Problema7();
+            //  Problema8();
+            //  Problema9();
+            // Problema10();
+            // Problema11();
+            // Problema12();
+            // Problema13();
+            // Problema14();
+            // Problema15();
+            // Problema16();
+            // Problema17();
+        }
 
-            //  int x = 0; int y = 1; int z = 1; int counter = 2; int n = 7;
-            //  fiboRecursiv(x, y, z, counter, n);
+        private static void Problema16()
+        {
+            Console.Write("Primul num: ");
+            int x = (int)getNumber();
 
-            // inversSecv();
-            // ordinCresc();
-            // monotonSecv();
-            // consecutivEgal();
-            // grupConsDifZero();
+            Console.Write("Al doilea num: ");
+            int y = (int)getNumber();
+
+            Console.Write("Cate numere: ");
+            int n = (int)getNumber();
+
+            bool cresc = true;
+            if (x <= y)
+                cresc = true;
+            else
+                cresc = false;
+
+            bool correct = false;
+            int a = 0;
+            while (true)
+            {
+                a = int.Parse(Console.ReadLine());
+
+                if (a >= y)
+                    y = a;
+                else
+                {
+                    y = a;
+                    while (n != 0)
+                    {
+                        a = int.Parse(Console.ReadLine());
+
+                        if (a <= y)
+                            y = a;
+                        else
+                            break;
+
+                        n--;
+                    }
+
+                    if (n == 0)
+                        correct = true;
+
+                    break;
+                }
+                n--;
+            }
+
+            if (correct)
+            {
+                if (cresc && y >= x)
+                {
+                    Console.WriteLine("Secv e rotita bitonica");
+                }
+                else if (!cresc && y >= x)
+                {
+                    Console.WriteLine("Nu e secv bitonica dar se poate prin rotire");
+                }
+                else
+                {
+                    Console.WriteLine("nu e nimic");
+                }
+            }
+            else
+            {
+                Console.WriteLine("nu e bine");
+            }
+        }
+
+        private static void Problema15()
+        {
+            Console.Write("Primul num: ");
+            int x = (int)getNumber();
+            Console.Write("Cate numere: ");
+            int n = (int)getNumber();
+
+            bool correct = false;
+            int a = 0;
+            while (true)
+            {
+                a = int.Parse(Console.ReadLine());
+
+                if (a >= x)
+                    x = a;
+                else
+                {
+                    x = a;
+                    while (n != 0)
+                    {
+                        a = int.Parse(Console.ReadLine());
+
+                        if (a <= x)
+                            x = a;
+                        else
+                            break;
+                        
+                        n--;
+                    }
+
+                    if (n == 0)
+                        correct = true;
+
+                    break;
+                }
+                n--;
+            }
+
+            if (correct)
+                Console.WriteLine("E bine");
+            else
+                Console.WriteLine("Nu e bine");
+        }
+
+        private static void Problema14()
+        {
+            Console.Write("Primul numar: ");
+            int x = (int)getNumber();
+            Console.Write("Al doilea numar: ");
+            int y = (int)getNumber();
+
+            Console.Write("Al treilea numar: ");
+            int a = int.Parse(Console.ReadLine());
+
+            if (a > y)
+                Problema13();
+            else
+                monRotitDesc(x);
+                
+        }
+
+        private static void monRotitDesc(int x)
+        {
+            int y = int.Parse(Console.ReadLine());
+            int a = 0;
+            bool desc = true;
+
+            for (int i = 0; i < 5; i++)
+            {
+                a = int.Parse(Console.ReadLine());
+
+                if (a < y)
+                    y = a;
+                else
+                {
+                    desc = false;
+                    break;
+                }
+            }
+
+            if (!desc)
+                Console.WriteLine("Secv nu e mon desc rotita");
+            else
+            {
+                if (x < y)
+                    Console.WriteLine("Secv e mon desc rotit");
+            }
+        }
+
+        private static void monRotitCresc(int x)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void Problema13()
+        {
+            Console.Write("Primul numar: ");
+            int x = (int)getNumber();
+            Console.Write("Al doilea numar: ");
+            int y = (int)getNumber();
+            bool cresc = true;
+
+            if (x > y)
+                cresc = false;
+
+            bool correct = true;
+            for (int i = 0; i < 10; i++)
+            {
+                int a = int.Parse(Console.ReadLine());
+
+                if (a >= y)
+                    y = a;
+                else
+                {
+                    correct = false;
+                    Console.WriteLine("Nu e o secventa crescatoara. ");
+                    break;
+                }
+            }
+
+            if (!correct)
+                Console.WriteLine("Secventa nu e crescatoara.");
+            else
+            {
+                if (x >= y)
+                {
+                    Console.WriteLine("Secventa e crescatoara rotita.");
+                }
+                else
+                {
+                    if (!cresc)
+                        Console.WriteLine("Secventa nu este crescatoara.");
+                    else
+                        Console.WriteLine("Secventa este crescatoara, dar nu cresc. rotita.");
+                }
+            }
 
         }
 
-        private static void grupConsDifZero()
+        private static void Problema17()
+        {
+            int x = 5;
+            int counter = 0;
+            int maxincuib = 0;
+
+            bool correct = true;
+            for (int i = 0; i < 10; i++)
+            {
+                x = int.Parse(Console.ReadLine());
+
+                if (x == 0)
+                {
+                    counter++;
+                }
+                else if (x == 1)
+                {
+                    counter--;
+                }
+                
+                if (counter < 0)
+                {
+                    correct = false;
+                    break;
+                }
+                if (x == 2)
+                {
+                    if (counter != 0)
+                        correct = false;
+                    break;
+                }
+                if (maxincuib < counter)
+                    maxincuib = counter;
+            }
+
+            if (correct)
+            {
+                Console.WriteLine($"Corect - max incuibare: {maxincuib}");
+            }
+            else
+            {
+                Console.WriteLine($"Nu-i corect :(");
+            }
+
+        }
+
+        private static void Problema12()
         {
             Console.Write("Primul element: ");
             int x = (int)getNumber();
@@ -40,7 +294,6 @@ namespace pool2
 
             for (int i = 0; i < n+1; i++)
             {
-                Console.Write($"{x} ");
                 if (x != 0)
                     helper++;
 
@@ -64,7 +317,7 @@ namespace pool2
 
         }
 
-        private static void consecutivEgal()
+        private static void Problema10()
         {
             Console.Write("Primul element: ");
             double x = (int)getNumber();
@@ -100,90 +353,75 @@ namespace pool2
 
         }
 
-        private static void monotonSecv()
+        private static void Problema9()
         {
             Console.Write("Primul element: ");
             int x = (int)getNumber();
-            bool valid = true;
-            bool cresc = true;
-            int a = int.MinValue;
-            int b = int.MinValue;
+            int primEm = x;
 
+            while (primEm == x)
+            {
+                if (x % 2 == 0)
+                    x = x / 2;
+                else
+                    x = 3 * x + 1;
+            }
+            if (x > primEm)
+                monCrescCheck(x);
+            else
+                monDescCheck(x);
+            
+        }
+
+        private static void monCrescCheck (int x)
+        {
+            bool cresc = true;
+            int y = x;
             for (int i = 0; i < 10; i++)
             {
-                if (i == 0)
-                    a = x;
-                if (i == 1)
-                    b = x;
-
                 if (x % 2 == 0)
                     x = x / 2;
                 else
                     x = 3 * x + 1;
 
-
-                if (a < b)
-                    cresc = true;
+                if (y > x)
+                    y = x;
                 else
+                {
+                    Console.WriteLine("Nu-i monoton crescator. ");
                     cresc = false;
-
-            }
-
-            for (int i = 0; i < 10; i++)
-            {
-                if (cresc)
-                {
-                    if (i % 2 == 0)
-                    {
-                        a = x;
-                        if (a < b)
-                        {
-                            valid = false;
-                        }
-                    }
-                    else
-                    {
-                        b = x;
-                        if (b < a)
-                        {
-                            valid = false;
-                        }
-                    }
-
-                    if (x % 2 == 0)
-                        x = x / 2;
-                    else
-                        x = 3 * x + 1;
-                }
-                else
-                {
-                    if (i % 2 == 0)
-                    {
-                        a = x;
-                        if (a > b)
-                        {
-                            valid = false;
-                        }
-                    }
-                    else
-                    {
-                        b = x;
-                        if (b > a)
-                        {
-                            valid = false;
-                        }
-                    }
-
-                    if (x % 2 == 0)
-                        x = x / 2;
-                    else
-                        x = 3 * x + 1;
+                    break;
                 }
             }
-
-            Console.WriteLine($"Monoton: {valid}");
+            if (cresc)
+                Console.WriteLine("Monoton crescator");
         }
 
+
+        private static void monDescCheck(int x)
+        {
+            int y = x;
+            bool desc = true;
+            for (int i = 0; i < 10; i++)
+            {
+                if (x % 2 == 0)
+                    x = x / 2;
+                else
+                    x = 3 * x + 1;
+
+                if (y < x)
+                    y = x;
+                else
+                {
+                    Console.WriteLine("Nu-i monoton descrescator. ");
+                    desc = false;
+                    break;
+                }
+            }
+
+            if (desc)
+                Console.WriteLine("Monoton crescator");
+        }
         private static void ordinCresc()
         {
             Console.Write("Primul element: ");
@@ -222,7 +460,7 @@ namespace pool2
 
 
 
-        private static void inversSecv()
+        private static void Problema11()
         {
             Console.Write("Primul element: ");
             double x = getNumber();
@@ -263,21 +501,23 @@ namespace pool2
             return fiboRecursiv(a, b, c, counter, n);
         }
 
-        private static void numberSum()
+        private static void Problema3()
         {
             Console.Write("Primele cate numere vreti: ");
             int n = (int)getNumber();
             int sum = 0;
+            int produs = 1;
 
             for (int i = 1; i <= n; i++)
             {
                 sum = sum + i;
+                produs = produs * i;
             }
 
-            Console.WriteLine($"Suma primelor n numere e: {sum}");
+            Console.WriteLine($"Suma primelor n numere e: {sum}, produsul e {produs}");
         }
 
-        private static void pareNegPozZero()
+        private static void Problema1si2()
         {
             Console.Write("Primul element: ");
             double x = (int)getNumber();
@@ -295,11 +535,12 @@ namespace pool2
 
                 if (x % 2 == 0)
                     par++;
+
                 if (x > 0)
                     pozitiv++;
-                if (x < 0)
+                else if (x < 0)
                     negativ++;
-                if (x == 0)
+                else
                     zero++;
             }
             Console.WriteLine("");
@@ -338,12 +579,13 @@ namespace pool2
             return numar;
         }
 
-        private static void numberPos()
+        private static void Problema4si5()
         {
             Console.Write("Primul element: ");
             int x = (int)getNumber();
             Console.Write("Care element cautati: ");
             int a = (int)getNumber();
+
             int pozitie = 0;
             int counter = 0;
             int pozCounter = 0;
@@ -373,30 +615,38 @@ namespace pool2
             Console.WriteLine($"{pozCounter} numere sunt egale cu pozitia lor");
         }
 
-        private static void secvCrescator()
+        private static void Problema6()
         {
             Console.Write("Primul element din secventa: ");
             int x = (int)getNumber();
-            int loopCounter = 0;
-           // int creste = 0;
+            int y = x;
+            bool cresc = true;
 
-            while (x < 500)
+            for (int i = 0; i < 10; i++)
             {
                 x = x + 17;
 
+                if (x >= y)
+                    y = x;
+                else
+                {
+                    Console.WriteLine("Secventa nu e crescatoare.");
+                    cresc = false;
+                    break;
+                }
 
-
-                Console.WriteLine(x);
-                loopCounter++;
             }
+
+            if (cresc)
+                Console.WriteLine("Secventa e crescatoare.");
         }
 
-        private static void minMax()
+        private static void Problema7()
         {
             Console.Write("Primul element: ");
             int x = (int)getNumber();
-            int max = int.MinValue;
-            int min = int.MaxValue;
+            int max = x;
+            int min = x;
 
             for (int i = 0; i < 10; i++)
             {
@@ -407,18 +657,17 @@ namespace pool2
 
                 if (x > max)
                     max = x;
-                if (x < min)
+                else if (x < min)
                     min = x;
 
-
-                Console.Write($"{x} ");
+                Console.WriteLine(x);
             }
 
             Console.WriteLine("");
             Console.WriteLine($"min: {min}, max: {max}");
         }
 
-        private static void fibo()
+        private static void Problema8()
         {
             int a = 0;
             int b = 1;
@@ -427,16 +676,23 @@ namespace pool2
             Console.Write("Catelea element vreti din fibo: ");
             int n = (int)getNumber();
 
-            for (int i = 1; i < n/3+2; i++)
+            if (n == 1)
+                Console.WriteLine(a);
+            else
             {
-                c = a + b;
-                Console.Write($"{a}, {b}, {c}, ");
-                a = b + c;
-                b = c + a;
-
+                if (n == 2)
+                    Console.WriteLine(b);
+                else
+                {
+                    for (int i = 0; i < n-1; i++)
+                    {
+                        a = b;
+                        b = c;
+                        c = a + b;
+                    }
+                }
+                Console.Write($"{c} ");
             }
         }
-
-
     }
 }
